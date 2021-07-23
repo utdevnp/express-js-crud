@@ -18,11 +18,9 @@ beforeEach(async ()=>{
     await page.goto("localhost:3000");
 })
 
-
-
 afterEach( async ()=>{
-    await browser.close();
-    jest.clearAllTimers();
+    await browser.close()
+    //jest.clearAllTimers();
 })
 
 // check heder test is correct or not 
@@ -38,6 +36,7 @@ test("click login start oauth flow", async ()=>{
 
     // expect url is to be match
     const url = await page.url()
-    console.log(url);
+    expect(url).toMatch(/accounts\.google\.com/)
+    // console.log(url);
 });
 
