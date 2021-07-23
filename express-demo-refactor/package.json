@@ -1,0 +1,15 @@
+{
+  "name": "express-demo-refactor",
+  "version": "1.0.0",
+  "description": "<pre>\r    Array Object \r    var courses  = [\r         {id:1,name:\"Mario Game\"},\r         {id:2,name:\"PHP Web development\"},\r         {id:3,name:\"Java Spring\"},\r         {id:4,name:\"Ruby on Rails\"},\r     ];\r </pre>",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "joi": "^17.4.0"
+  }
+}
