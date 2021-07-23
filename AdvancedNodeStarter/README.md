@@ -80,5 +80,5 @@ Starting project for a course on Advanced Node @ Udemy
         Eg: XxzJ1q8Z4JFg6C92YWSAKWj7SFk (Generated signeture)
 
     ## VERIFY Session signeture  (XxzJ1q8Z4JFg6C92YWSAKWj7SFk is a generated signeture above)
-    keygrip.verify("session=" + session, 'XxzJ1q8Z4JFg6C92YWSAKWj7SFk')
+    keygrip.verify("session=" + session, 'XxzJ1q8Z4JFg6C92YWSAKWj7SFk') // @ returns true: correct or false:tempered
 </pre>

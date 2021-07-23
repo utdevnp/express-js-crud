@@ -40,3 +40,25 @@ test("click login start oauth flow", async ()=>{
     // console.log(url);
 });
 
+test("when signed in shows logout button", async ()=>{
+    const user_id = "60f7e9aa6cad302a7c91b504";
+    // require the buffer for generate session key
+    const Buffer = require("buffer").Buffer;
+    const sessionObj = {
+        passport:{
+            user:user_id
+        }
+    };
+    const sessionString = Buffer.from(
+        JSON.stringify(sessionObj)
+    ).toString("base64");
+
+    const Keygrip = require("keygrip");
+    const keys = require("../config/keys");
+    const keygrip = new Keygrip([keys.cookieKey]);
+    const signeture = keygrip.sign("session="+sessionString);
+
+    console.log(sessionString , signeture);
+});
+
+
