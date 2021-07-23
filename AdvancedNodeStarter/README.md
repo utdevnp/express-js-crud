@@ -78,4 +78,7 @@ Starting project for a course on Advanced Node @ Udemy
     ## sign session with cookie key 
     keygrip.sign("session=" + session)
         Eg: XxzJ1q8Z4JFg6C92YWSAKWj7SFk (Generated signeture)
+
+    ## VERIFY Session signeture  (XxzJ1q8Z4JFg6C92YWSAKWj7SFk is a generated signeture above)
+    keygrip.verify("session=" + session, 'XxzJ1q8Z4JFg6C92YWSAKWj7SFk')
 </pre>
