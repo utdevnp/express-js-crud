@@ -1,4 +1,8 @@
 const puppeteer = require("puppeteer");
+const sessionFactory = require("./factories/sessionFactory");
+const userFactory = require("./factories/userFactory");
+
+
 let browser,page;
 beforeEach(async ()=>{
     // if we get given message on test 
@@ -42,31 +46,14 @@ test("click login start oauth flow", async ()=>{
 
 // to run single test in the file use .only 
 test("when signed in shows logout button", async ()=>{
-    // get user id from db
-    const user_id = "60f7e9aa6cad302a7c91b504";
-    // require the buffer for generate session key
-    const Buffer = require("buffer").Buffer;
-    const sessionObj = {
-        passport:{
-            user:user_id // save object
-        }
-    };
-    // make session object base64 as a string using stringify 
-    const sessionString = Buffer.from(
-        JSON.stringify(sessionObj)
-    ).toString("base64");
-    
-    // import keygrip , use for generate sugneture and sign
-    const Keygrip = require("keygrip");
-    const keys = require("../config/keys"); // import cookieKey form config file
-    const keygrip = new Keygrip([keys.cookieKey]);
-    // generate session signeture and store in signeture
-    const signeture = keygrip.sign("session="+sessionString);
-
-    //console.log(sessionString , signeture);
+   
+    // make new user from userFactory
+    const user = await userFactory();
+    // pass the user model to sessionFactory and generate the session keys , signeture
+    const {session,signeture} = sessionFactory(user);
 
     // set the cookie in the browser 
-    await page.setCookie({name:"session",value:sessionString});
+    await page.setCookie({name:"session",value:session});
     await page.setCookie({name:"session.sig",value:signeture});
 
     await page.goto("localhost:3000");
