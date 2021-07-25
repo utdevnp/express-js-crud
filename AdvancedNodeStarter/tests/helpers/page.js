@@ -1,17 +1,17 @@
 const puppeteer = require("puppeteer");
 
-class Customepage{
+class Custompage{
     // define static function 
     static async build(){
-        // create a browser
+        // create a browser using 'puppeteer'
         const browser = await puppeteer.launch({
-            headless:true
+            headless:false
         });
-
-        const page  = await browser.page();
-        const customePage = new Customepage();
+         // create a page like a new tab
+        const page  = await browser.newPage();
+        const customPage = new Custompage();
         // create proxy for the combining both to access property of page and custome page in single obj
-        return new Proxy(customePage,{
+        return new Proxy(customPage,{
             get: function(target,property){
                 return target[property] || page[property] || browser[property];
             }
@@ -23,4 +23,4 @@ class Customepage{
     }
 }
 
-module.exports = Customepage;
+module.exports = Custompage;
