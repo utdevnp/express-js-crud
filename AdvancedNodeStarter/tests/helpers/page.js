@@ -1,6 +1,8 @@
 const puppeteer = require("puppeteer");
+const sessionFactory = require("../factories/sessionFactory");
+const userFactory = require("../factories/userFactory");
 
-class Custompage{
+class CustomPage{
     // define static function 
     static async build(){
         // create a browser using 'puppeteer'
@@ -9,24 +11,35 @@ class Custompage{
         });
          // create a page like a new tab
         const page  = await browser.newPage();
-        const customPage = new Custompage();
+        const customPage = new CustomPage(page); // pass the page for proxy
         // create proxy for the combining both to access property of page and custome page in single obj
         return new Proxy(customPage,{
-            get: function(target,property){
+            get: function(target,property){ // set 
                 return target[property] || browser[property] || page[property];
             }
         });
     }
 
-    constructor(page,browser){
+    constructor(page){
         this.page = page;
-        this.browser = browser;
+        ///console.log(page);
     }
 
-    // alternet method
-    // close(){
-    //     this.browser.close();
-    // }
+
+     async login (){
+        // make new user from userFactory
+        const user = await userFactory();
+        // pass the user model to sessionFactory and generate the session keys , signeture
+        const {session,signeture} = sessionFactory(user);
+
+        // set the cookie in the browser 
+        await this.page.setCookie({name:"session",value:session});
+        await this.page.setCookie({name:"session.sig",value:signeture});
+
+        await this.page.goto("localhost:3000");
+        await this.page.waitFor('a[href="/auth/logout"]');
+    }
+
 }
 
-module.exports = Custompage;
+module.exports = CustomPage;
