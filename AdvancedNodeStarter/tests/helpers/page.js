@@ -13,14 +13,20 @@ class Custompage{
         // create proxy for the combining both to access property of page and custome page in single obj
         return new Proxy(customPage,{
             get: function(target,property){
-                return target[property] || page[property] || browser[property];
+                return target[property] || browser[property] || page[property];
             }
         });
     }
 
-    constructor(page){
-        this.page = page
+    constructor(page,browser){
+        this.page = page;
+        this.browser = browser;
     }
+
+    // alternet method
+    // close(){
+    //     this.browser.close();
+    // }
 }
 
 module.exports = Custompage;
