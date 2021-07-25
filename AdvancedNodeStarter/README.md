@@ -82,3 +82,9 @@ Starting project for a course on Advanced Node @ Udemy
     ## VERIFY Session signeture  (XxzJ1q8Z4JFg6C92YWSAKWj7SFk is a generated signeture above)
     keygrip.verify("session=" + session, 'XxzJ1q8Z4JFg6C92YWSAKWj7SFk') // @ returns true: correct or false:tempered
 </pre>
+
+## Create a proxy
+<pre>
+    ## Proxy sample code is here
+    https://codepen.io/utdevnp/pen/YzVERpj
+</pre>
