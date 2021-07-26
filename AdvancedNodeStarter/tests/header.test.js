@@ -24,14 +24,14 @@ test("Header has correct text",async ()=>{
 })
 
 
-test("click login start oauth flow", async ()=>{
-    // find aotuh link the site 
-    await page.click('.right a');
-    // expect url is to be match
-    const url = await page.url()
-    expect(url).toMatch(/accounts\.google\.com/)
-    // console.log(url);
-});
+// test("click login start oauth flow", async ()=>{
+//     // find aotuh link the site 
+//     await page.click('.right a');
+//     // expect url is to be match
+//     const url = await page.url()
+//     expect(url).toMatch(/accounts\.google\.com/);
+//     // console.log(url);
+// });
 
 // to run single test in the file use .only 
 test("when signed in shows logout button", async ()=>{
