@@ -20,7 +20,7 @@ afterEach( async ()=>{
 
 // check heder test is correct or not 
 test("Header has correct text",async ()=>{
-    const text = await page.$eval("a.brand-logo", el=>el.innerHTML);
+    const text = await page.getContentsOf("a.brand-logo");
     expect(text).toEqual("Blogster");
 })
 
@@ -39,7 +39,7 @@ test("when signed in shows logout button", async ()=>{
     // login to the account 
     await page.login();
     // get logout text 
-    const text = await page.$eval('a[href="/auth/logout"]', el=>el.innerHTML);
+    const text = await page.getContentsOf('a[href="/auth/logout"]');
     expect(text).toEqual("Logout");
 });
 
