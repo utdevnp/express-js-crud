@@ -88,3 +88,9 @@ Starting project for a course on Advanced Node @ Udemy
     ## Proxy sample code is here
     https://codepen.io/utdevnp/pen/YzVERpj
 </pre>
+
+## Api call using Fetch
+<pre>
+    # sample code 
+    https://codepen.io/utdevnp/pen/wvdpPYw?editors=0012
+</pre>
