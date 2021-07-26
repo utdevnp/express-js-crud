@@ -1,3 +1,5 @@
+jest.setTimeout(50000);
+
 // jest setup and configure model user
 require("../models/User");
 

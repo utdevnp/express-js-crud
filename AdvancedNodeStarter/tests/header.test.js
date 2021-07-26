@@ -6,7 +6,6 @@ beforeEach(async ()=>{
     // if we get given message on test 
     // Timeout - Async callback was not invoked within the 5000ms timeout specified by jest.setTimeout.
     // please set jest timeout 
-    jest.setTimeout(15000);
 
     page = await Page.build();
     // open our project 

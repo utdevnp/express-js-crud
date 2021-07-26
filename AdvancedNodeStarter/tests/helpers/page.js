@@ -36,7 +36,7 @@ class CustomPage{
         await this.page.setCookie({name:"session",value:session});
         await this.page.setCookie({name:"session.sig",value:signeture});
 
-        await this.page.goto("localhost:3000");
+        await this.page.goto("localhost:3000/blogs");
         await this.page.waitFor('a[href="/auth/logout"]');
     }
 
