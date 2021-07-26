@@ -94,18 +94,7 @@ describe("When user is not logged in", async()=>{
     });
 
     test("User cannot get the posts",async ()=>{
-        const result = await page.evaluate(
-            ()=>{
-                return fetch("/api/blogs",{
-                    method: "GET",
-                    credentials: "same-origin",
-                    headers: {
-                        'Content-Type': "application/json"
-                    }
-                }).then(res => res.json())
-            }
-        );
-
+        const result = await page.post("/api/blogs",{name:"my content", content:"conent"});
         expect(result).toEqual({error:'You must log in!'});
     });
 })
