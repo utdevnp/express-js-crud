@@ -71,30 +71,42 @@ describe("When logged in", async()=>{
 
 describe("When user is not logged in", async()=>{
 
-    test("User cannot create blog post", async() =>{
-        // use evaluate for the api calling usinng Fetch
-        const result  = await page.evaluate(
-            ()=>{
-                return fetch("/api/blogs",{
-                    method: "POST",
-                    credentials: "same-origin",
-                    headers: {
-                        'Content-Type': "application/json"
-                    },
-                    body: JSON.stringify({
-                        name : "My test blog post",
-                        content: "My blog post description, test"
-                    })
-                }).then(res => res.json())
-            }// function defination complete
-        );
+    // test("User cannot create blog post", async() =>{
+    //     // use evaluate for the api calling usinng Fetch
+    //     const result  = await page.get("/api/blogs");      
+    //     expect(result).toEqual({ error: 'You must log in!' });
+    // });
 
-       
-        expect(result).toEqual({ error: 'You must log in!' });
-    });
+    // test("User cannot get the posts",async ()=>{
+    //     const result = await page.post("/api/blogs",{name:"my content", content:"conent"});
+    //     expect(result).toEqual({error:'You must log in!'});
+    // });
 
-    test("User cannot get the posts",async ()=>{
-        const result = await page.post("/api/blogs",{name:"my content", content:"conent"});
-        expect(result).toEqual({error:'You must log in!'});
-    });
+    test("Blog related api test", async ()=>{
+        // make object of the possiable same result apis
+         // methos are define as page.get and page.post in array
+        const actions = [
+            {
+                method:"post",
+                path:"/api/blogs",
+                data:{
+                    name:"my content",
+                    content:"conent"
+                }
+            },
+            {
+                method:"get",
+                path:"/api/blogs"
+
+            }
+        ];
+
+        const results  = await page.executeRequest(actions);
+        // iterate over result 
+        for(let result of results){
+            // result must be same , otherwise test will be fail
+            expect(result).toEqual({error:'You must log in!'})
+        }
+
+    })
 })

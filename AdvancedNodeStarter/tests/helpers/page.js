@@ -73,6 +73,15 @@ class CustomPage{
         );
     }
 
+    executeRequest(actions){
+        return Promise.all(
+            actions.map(({ method, path, data }) => {
+                return this[method](path, data);
+                // methos are define as page.get and page.post in array
+            })
+        );
+    }
+
 }
 
 module.exports = CustomPage;
