@@ -26,7 +26,33 @@ describe("When logged in", async()=>{
     });
 
     // nesting 
-   
+    describe("And using valid inputs", async ()=>{
+        beforeEach( async ()=>{
+            await page.type(".title input","This is blog title from the test");
+            await page.type(".content input","this is blog description test");            
+            await page.click("form button");
+        })
+
+        test("submitting takes in review page ",async ()=>{
+            const text = await page.getContentsOf("form h5");
+            expect(text).toEqual("Please confirm your entries");
+
+        });
+
+        test("Submitting and saving the blogs, get index page",async ()=>{
+            await page.click("button.green");
+            await page.waitFor(".card"); // waiting for request complete 
+
+            const title = await page.getContentsOf(".card-title");
+            const content = await page.getContentsOf(".card-content p");
+            const readmore = await page.getContentsOf(".card-action a");
+
+            expect(title).toEqual("This is blog title from the test");
+            expect(content).toEqual("this is blog description test")
+            expect(readmore).toEqual("Read");
+
+        })
+    })
 
     describe("And using invalid inputs", async ()=>{
         beforeEach( async ()=>{
