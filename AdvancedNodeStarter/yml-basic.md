@@ -1,7 +1,8 @@
 ## YML Basics
 ### Playground of yml to json (must know)
 <pre>
-    https://codebeautify.org/yaml-to-json-xml-csv#
+    PLAYGROUND - https://codebeautify.org/yaml-to-json-xml-csv
+    SAMPLE EXAMPLE - https://codebeautify.org/yaml-to-json-xml-csv/cbc61eca
 </pre>
 
 ### Example in YML
