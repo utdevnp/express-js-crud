@@ -84,7 +84,7 @@ describe("When user is not logged in", async()=>{
 
     test("Blog related api test", async ()=>{
         // make object of the possiable same result apis
-         // methos are define as page.get and page.post in array
+        // methos are define as page.get and page.post in array
         const actions = [
             {
                 method:"post",
@@ -97,7 +97,6 @@ describe("When user is not logged in", async()=>{
             {
                 method:"get",
                 path:"/api/blogs"
-
             }
         ];
 

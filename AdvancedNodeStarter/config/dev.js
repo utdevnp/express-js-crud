@@ -5,4 +5,5 @@ module.exports = {
   //mongoURI: 'mongodb://readonly:password@ds063124.mlab.com:63124/blog_everyone',
   mongoURI: 'mongodb://localhost/cms',
   cookieKey: '123123123',
+  redisUrl: "redis://localhost:6379"
 };
