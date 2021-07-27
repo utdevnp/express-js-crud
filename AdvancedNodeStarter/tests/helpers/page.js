@@ -7,7 +7,9 @@ class CustomPage{
     static async build(){
         // create a browser using 'puppeteer'
         const browser = await puppeteer.launch({
-            headless:false
+            // when you deploy the CI server , make true
+            headless:true,
+            args:["--no-sandbox"]
         });
          // create a page like a new tab
         const page  = await browser.newPage();
@@ -36,7 +38,7 @@ class CustomPage{
         await this.page.setCookie({name:"session",value:session});
         await this.page.setCookie({name:"session.sig",value:signeture});
 
-        await this.page.goto("localhost:3000/blogs");
+        await this.page.goto("http://localhost:3000/blogs");
         await this.page.waitFor('a[href="/auth/logout"]');
     }
 
