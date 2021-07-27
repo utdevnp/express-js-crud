@@ -1,0 +1,22 @@
+[33mcommit aa46090dc7e1e403124fba90f94a9f07ad38f061[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Utshab Luitel <utdevnp@gmail.com>
+Date:   Mon Jul 26 12:05:05 2021 +0545
+
+    Api call using Fetch
+
+[1mdiff --git a/AdvancedNodeStarter/README.md b/AdvancedNodeStarter/README.md[m
+[1mindex 52b507b..2d1c029 100644[m
+[1m--- a/AdvancedNodeStarter/README.md[m
+[1m+++ b/AdvancedNodeStarter/README.md[m
+[36m@@ -87,4 +87,10 @@[m [mStarting project for a course on Advanced Node @ Udemy[m
+ <pre>[m
+     ## Proxy sample code is here[m
+     https://codepen.io/utdevnp/pen/YzVERpj[m
+[32m+[m[32m</pre>[m
+[32m+[m
+[32m+[m[32m## Api call using Fetch[m
+[32m+[m[32m<pre>[m
+[32m+[m[32m    # sample code[m[41m [m
+[32m+[m[32m    https://codepen.io/utdevnp/pen/wvdpPYw?editors=0012[m
+ </pre>[m
+\ No newline at end of file[m
