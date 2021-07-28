@@ -8,7 +8,8 @@ const Course = db.model("Course", new db.Schema({
         required: true
     },
     author: {
-        type: String,
+        type: db.Schema.Types.ObjectId,
+        ref:"Author",
         required: true
     },
     tags:{

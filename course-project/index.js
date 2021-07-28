@@ -2,6 +2,7 @@
 const db = require("mongoose");
 const course = require("./routes/courses");
 const home = require("./routes/home");
+const authorroute = require("./routes/authors");
 const express = require("express");
 
 const app = express(); // define express in app constant
@@ -18,6 +19,7 @@ db.connect("mongodb://localhost/playground",{
 // it is also like a middlewire 
 app.use(express.json());
 app.use("/api/course",course);
+app.use("/api/author",authorroute);
 app.use("/",home);
 
 // listen or serve app in given port number like 3000,8000
