@@ -9,8 +9,7 @@ const Course = db.model("Course", new db.Schema({
     },
     author: {
         type: db.Schema.Types.ObjectId,
-        ref:"Author",
-        required: true
+        ref:"Author"
     },
     tags:{
          type: Array

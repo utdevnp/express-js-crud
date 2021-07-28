@@ -5,7 +5,9 @@ const router = express.Router();
 
 // course list route
 router.get("/", async (req,res)=>{
-    const courses = await Course.find().sort("name");
+    const courses = await Course.find()
+    .populate("author","name bio _id -_id")
+    .sort("name");
     res.send(courses);
 });
 
