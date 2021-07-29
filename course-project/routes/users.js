@@ -17,6 +17,7 @@ router.post("/",async (req,res)=>{
         user.password = await hashPassword(req.body.password);
         await user.save();
 
+        // make new method in the user model to access authToken
         const token = user.generateAuthToken();
 
         res.header("x-auth-header",token).send(_lodash.pick(user,['name','email',"_id"]));  

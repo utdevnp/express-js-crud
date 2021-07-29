@@ -16,7 +16,7 @@ router.post("/",async (req,res)=>{
     
     const token = user.generateAuthToken();
     //res.send(_lodash.pick(user,['name','email',{"token":token}]));
-    res.send({token:token});
+    res.header("x-auth-header",token).send({token:token});
 })
 
 
