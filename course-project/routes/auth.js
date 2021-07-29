@@ -1,3 +1,5 @@
+const config  = require("config");
+const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const _lodash = require("lodash");
 const {User,validateLogin} = require("../models/userModel");
@@ -15,7 +17,9 @@ router.post("/",async (req,res)=>{
     const isUser  = await bcrypt.compare(req.body.password, user.password);
     if(!isUser) return res.status(400).send({error:"Invalid email or password"})
     
-    res.send(_lodash.pick(user,[{login:true},'name','email']));
+    const token = jwt.sign({_id:user._id},config.get("jwtSecretToken"));
+    //res.send(_lodash.pick(user,['name','email',{"token":token}]));
+    res.send({token:token});
 })
 
 

@@ -1,3 +1,5 @@
+const jwt = require("jsonwebtoken")
+const config = require("config");
 const bcrypt = require("bcrypt");
 const _lodash = require("lodash");
 const {User,validate} = require("../models/userModel");
@@ -16,7 +18,10 @@ router.post("/",async (req,res)=>{
         const user = new User(_lodash.pick(req.body,['name','email','password']))
         user.password = await hashPassword(req.body.password);
         await user.save();
-        res.send(_lodash.pick(user,['name','email',"_id"]));  
+
+        const token = jwt.sign({_id:user._id},config.get("jwtSecretToken"));
+
+        res.header("x-auth-header",token).send(_lodash.pick(user,['name','email',"_id"]));  
 
     }catch(ex){
         res.status(400).send(ex.message);

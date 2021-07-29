@@ -1,5 +1,6 @@
 // express is a web development fremewrok in nodejs , called if express js 
 const db = require("mongoose");
+const config = require("config");
 
 const course = require("./routes/courses");
 const home = require("./routes/home");
@@ -12,6 +13,13 @@ const express = require("express");
 const app = express(); // define express in app constant
 
 const port = 8080; // set listening port of the service 
+
+// cehck the jwt set or not 
+if(!config.get("jwtSecretToken")) {
+    console.log("ERROR...","JWT Token not set ");
+    process.exit(1);
+} 
+
 
 // connect the database 
 db.connect("mongodb://localhost/playground",{
