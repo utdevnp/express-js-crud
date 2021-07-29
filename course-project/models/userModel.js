@@ -1,4 +1,6 @@
 const db = require("mongoose");
+const jwt = require("jsonwebtoken");
+const config = require("config");
 const Joi = require('joi');
 const userSchema = new db.Schema({
     name:{
@@ -14,6 +16,14 @@ const userSchema = new db.Schema({
         required:true
     }
 });
+
+// generte auth token attached to user
+
+userSchema.methods.generateAuthToken = function (){
+   const token =  jwt.sign({_id:this._id},config.get("jwtSecretToken"));
+    return token;
+}
+
 
 const User = new db.model("User",userSchema);
 
