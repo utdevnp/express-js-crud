@@ -1,15 +1,17 @@
 const db = require("mongoose");
 // joi package used  for the validation of request body input it is external
 const Joi  = require("joi");
+const { authorSchema } = require("./authorModel");
 // make the model of the course and schema
-const Course = db.model("Course", new db.Schema({
+const Course = new db.model("Course", new db.Schema({
     name: {
         type: String,
         required: true
     },
     author: {
-        type: db.Schema.Types.ObjectId,
-        ref:"Author"
+        type: db.Schema.Types.ObjectId, //authorSchema,
+        ref: 'Author',
+        required:true
     },
     tags:{
          type: Array
@@ -27,8 +29,8 @@ const Course = db.model("Course", new db.Schema({
 function validateCourse(course){
     const schema = Joi.object({
         name: Joi.string().min(3).required(),
-        author: Joi.string(),
         tags: Joi.array(),
+        author: Joi.string(),
         price: Joi.number(),
         isPublish:Joi.bool()
     });

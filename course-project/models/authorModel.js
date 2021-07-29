@@ -1,25 +1,28 @@
 const db  = require("mongoose");
 const Joi = require("joi");
-const Author = db.model("Author", db.Schema({
+
+const authorSchema =  new db.Schema({
     name:{
         type: String,
         required:true
     },
     bio:{
         type:String,
-        required:true
+        //required:true
     },
     website:{
         type:String,
-        required:true
+       // required:true
     }
-}));
+});
+
+const Author = new db.model("Author",authorSchema);
 
 
 /// valudate by joi
 function validateAuthor(author){
     const schema = Joi.object({
-        name: Joi.string().min(3).required(),
+        name: Joi.string().min(3),
         bio: Joi.string(),
         website: Joi.string()
     })
@@ -31,3 +34,4 @@ function validateAuthor(author){
 
 exports.Author = Author;
 exports.validate = validateAuthor;
+exports.authorSchema = authorSchema;

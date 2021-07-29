@@ -25,7 +25,7 @@ async function createCourse(name,author){
     let courseAdd = new Course({
         name: name,
         author: author,
-        proce: "10",
+        price: "10",
         isPublish:true,
         tags: ['js','es']
     });

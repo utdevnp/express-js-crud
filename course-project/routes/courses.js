@@ -1,6 +1,7 @@
  // use object destructuring , this validateCourse return the two array one is error
 const { Course, validate } = require("../models/courseModel");
 const express = require("express");
+const { Author } = require("../models/authorModel");
 const router = express.Router();
 
 // course list route
@@ -31,7 +32,8 @@ router.post("/", async (req,res)=>{
     // add the course in array using array push
     let courseadd = new Course({
         name: req.body.name, // request input name  {"name":"New course"}
-        author: req.body.author,
+        //author: new Author({name:req.body.author}),
+        author:req.body.author,
         tags: req.body.tags,
         price: req.body.price,
         isPublish: req.body.isPublish
