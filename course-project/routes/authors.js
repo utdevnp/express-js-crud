@@ -1,14 +1,15 @@
+const requireLogin = require("../middlewire/requireLogin");
 const { Author, validate} = require("../models/authorModel");
 const express = require("express");
 const router = express.Router();
 
-router.get("/", async (req,res)=>{
+router.get("/", requireLogin, async (req,res)=>{
    const  author = await Author.find();
     res.send(author)
 })
 
 // insert author 
-router.post("/",async (req,res)=>{
+router.post("/", requireLogin, async (req,res)=>{
     const {error} = validate(req.body);
     if(error) return res.send(400).body(error.details[0].message);
 
