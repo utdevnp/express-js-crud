@@ -1,8 +1,11 @@
 // express is a web development fremewrok in nodejs , called if express js 
 const db = require("mongoose");
+
 const course = require("./routes/courses");
 const home = require("./routes/home");
 const authorroute = require("./routes/authors");
+const users = require("./routes/users");
+
 const express = require("express");
 
 const app = express(); // define express in app constant
@@ -20,6 +23,7 @@ db.connect("mongodb://localhost/playground",{
 app.use(express.json());
 app.use("/api/course",course);
 app.use("/api/author",authorroute);
+app.use("/api/user",users);
 app.use("/",home);
 
 // listen or serve app in given port number like 3000,8000
