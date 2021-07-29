@@ -21,6 +21,15 @@ function validate(user){
     const schema = Joi.object({
         name:Joi.string().required(),
         email:Joi.string().required().email(),
+      
+    });
+    return  schema.validate(user);
+
+}
+
+function validateLogin(user){
+    const schema = Joi.object({
+        email:Joi.string().required().email(),
         password: Joi.string().required()
     });
     return  schema.validate(user);
@@ -29,4 +38,4 @@ function validate(user){
 
 module.exports.User = User;
 module.exports.validate = validate;
-module.exports.userSchema = userSchema;
+module.exports.validateLogin = validateLogin;

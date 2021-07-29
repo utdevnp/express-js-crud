@@ -5,6 +5,7 @@ const course = require("./routes/courses");
 const home = require("./routes/home");
 const authorroute = require("./routes/authors");
 const users = require("./routes/users");
+const auth   = require("./routes/auth");
 
 const express = require("express");
 
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use("/api/course",course);
 app.use("/api/author",authorroute);
 app.use("/api/user",users);
+app.use("/api/auth",auth);
 app.use("/",home);
 
 // listen or serve app in given port number like 3000,8000
