@@ -1,3 +1,4 @@
+const requireLogin = require("../middlewire/requireLogin");
 const bcrypt = require("bcrypt");
 const _lodash = require("lodash");
 const {User,validate} = require("../models/userModel");
@@ -13,7 +14,7 @@ router.post("/",async (req,res)=>{
     if(user) return res.status(400).send({error:"User already exist..."});
 
     try{
-        const user = new User(_lodash.pick(req.body,['name','email','password']))
+        const user = new User(_lodash.pick(req.body,['name','email','password','isAdmin']))
         user.password = await hashPassword(req.body.password);
         await user.save();
 
@@ -27,7 +28,16 @@ router.post("/",async (req,res)=>{
     }
   
     
+});
+
+
+
+router.get("/", requireLogin, async (req,res)=>{
+    const user =  await User.findById(req.user._id).select("-password");
+    res.send(user);
 })
+
+
 
 
 

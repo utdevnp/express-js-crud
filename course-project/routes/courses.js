@@ -1,19 +1,29 @@
+ 
  // use object destructuring , this validateCourse return the two array one is error
-const { Course, validate } = require("../models/courseModel");
+const requireLogin = require("../middlewire/requireLogin");
+const isAdmin = require("../middlewire/isAdmin");
+ const { Course, validate } = require("../models/courseModel");
 const express = require("express");
 const { Author } = require("../models/authorModel");
 const router = express.Router();
 
 // course list route
-router.get("/", async (req,res)=>{
-    const courses = await Course.find()
-    .populate("author","name bio _id -_id")
-    .sort("name");
-    res.send(courses);
+router.get("/", requireLogin, async (req,res)=>{
+
+    // avoid Unhandle rejection , use TRY Catch block 
+    try{
+        const courses = await Course.find()
+        .populate("author","name bio _id -_id")
+        .sort("name");
+        res.send(courses);
+    }catch(ex){
+        res.send("Internal server error").status(500);
+    }
+    
 });
 
 // find course with course id 
-router.get("/:id", async (req,res)=>{
+router.get("/:id",requireLogin, async (req,res)=>{
 
     // check the course exist or not , if not exist reurn the message
     var course = await Course.findById(req.params.id);
@@ -23,7 +33,7 @@ router.get("/:id", async (req,res)=>{
 });
 
 // handle the post req
-router.post("/", async (req,res)=>{
+router.post("/",requireLogin, async (req,res)=>{
     // input validation using joi package
     const {error}= validate(req.body);
     // if validate return error 
@@ -45,7 +55,7 @@ router.post("/", async (req,res)=>{
 
 
 // update course
-router.put("/:id", async (req,res)=>{
+router.put("/:id",requireLogin, async (req,res)=>{
 
     // vaidation
     // input validation using joi package 
@@ -71,7 +81,7 @@ router.put("/:id", async (req,res)=>{
 });
 
 // delete course
-router.delete("/:id",async function(req,res){
+router.delete("/:id",[requireLogin, isAdmin], async function(req,res){
   
     let course = await Course.findByIdAndRemove(req.params.id);
     if(!course) return res.status(404).send("Requested course not found");

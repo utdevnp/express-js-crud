@@ -14,13 +14,14 @@ const userSchema = new db.Schema({
     password:{
         type:String,
         required:true
-    }
+    },
+    isAdmin:Boolean
 });
 
 // generte auth token attached to user
 
 userSchema.methods.generateAuthToken = function (){
-   const token =  jwt.sign({_id:this._id},config.get("jwtSecretToken"));
+   const token =  jwt.sign({_id:this._id,isAdmin:this.isAdmin},config.get("jwtSecretToken"));
     return token;
 }
 
@@ -31,7 +32,8 @@ function validate(user){
     const schema = Joi.object({
         name:Joi.string().required(),
         email:Joi.string().required().email(),
-        password: Joi.string().required()
+        password: Joi.string().required(),
+        isAdmin: Joi.boolean()
     });
     return  schema.validate(user);
 
