@@ -1,16 +1,23 @@
 // express is a web development fremewrok in nodejs , called if express js 
+// package or module
 require("express-async-errors");
 const db = require("mongoose");
 const config = require("config");
+const winston = require("winston");
+const express = require("express");
+
+// Middleware
 const logger = require("./middlewire/logger");
 
+// routes
 const course = require("./routes/courses");
 const home = require("./routes/home");
 const authorroute = require("./routes/authors");
 const users = require("./routes/users");
 const auth   = require("./routes/auth");
 
-const express = require("express");
+// save log mssage in the logger.log using winston
+winston.add(new winston.transports.File({filename: "logger.log"}));
 
 const app = express(); // define express in app constant
 
