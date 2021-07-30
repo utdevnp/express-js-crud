@@ -1,25 +1,22 @@
  
  // use object destructuring , this validateCourse return the two array one is error
+
+const { Course, validate } = require("../models/courseModel");
 const requireLogin = require("../middlewire/requireLogin");
 const isAdmin = require("../middlewire/isAdmin");
- const { Course, validate } = require("../models/courseModel");
+
+
 const express = require("express");
 const { Author } = require("../models/authorModel");
 const router = express.Router();
 
 // course list route
 router.get("/", requireLogin, async (req,res)=>{
-
     // avoid Unhandle rejection , use TRY Catch block 
-    try{
-        const courses = await Course.find()
-        .populate("author","name bio _id -_id")
-        .sort("name");
-        res.send(courses);
-    }catch(ex){
-        res.send("Internal server error").status(500);
-    }
-    
+    const courses = await Course.find()
+    .populate("author","name bio _id -_id")
+    .sort("name");
+    res.send(courses); 
 });
 
 // find course with course id 

@@ -1,6 +1,8 @@
 // express is a web development fremewrok in nodejs , called if express js 
+require("express-async-errors");
 const db = require("mongoose");
 const config = require("config");
+const logger = require("./middlewire/logger");
 
 const course = require("./routes/courses");
 const home = require("./routes/home");
@@ -35,6 +37,10 @@ app.use("/api/author",authorroute);
 app.use("/api/user",users);
 app.use("/api/auth",auth);
 app.use("/",home);
+
+app.use(logger);
+
+// error handling
 
 // listen or serve app in given port number like 3000,8000
 app.listen(port,function(){
