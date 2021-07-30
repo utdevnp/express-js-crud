@@ -13,7 +13,7 @@ const router = express.Router();
 // course list route
 router.get("/", requireLogin, async (req,res)=>{
     // avoid Unhandle rejection , use TRY Catch block 
-    throw new Error("could not get course ...");
+    // throw new Error("could not get course ...");
     const courses = await Course.find()
     .populate("author","name bio _id -_id")
     .sort("name");

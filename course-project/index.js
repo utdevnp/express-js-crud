@@ -4,6 +4,7 @@ require("express-async-errors");
 const db = require("mongoose");
 const config = require("config");
 const winston = require("winston");
+require("winston-mongodb");
 const express = require("express");
 
 // Middleware
@@ -16,8 +17,35 @@ const authorroute = require("./routes/authors");
 const users = require("./routes/users");
 const auth   = require("./routes/auth");
 
+//throw new Error("error............");
+
 // save log mssage in the logger.log using winston
 winston.add(new winston.transports.File({filename: "logger.log"}));
+// save log into the database 
+winston.add(new winston.transports.MongoDB({db:"mongodb://localhost/playground"}))
+
+
+// to handle exception out of express scope
+
+winston.handleExceptions(
+    new winston.transports.File({filename:"unhandleException.log"})
+)
+
+// process.on('uncaughtException',(ex)=>{
+//     console.log("SOMTHING FAIL TO STARTUP....");
+//     winston.log("error", ex.message,ex);
+//     process.exit(1);
+// })
+
+
+
+// to handle unhandle rejection
+process.on("unhandledRejection",(ex)=>{
+    throw ex;
+    // winston.log("error", ex.message,ex);
+    // process.exit(1);
+})
+
 
 const app = express(); // define express in app constant
 
