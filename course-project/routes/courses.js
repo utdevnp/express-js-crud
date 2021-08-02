@@ -11,7 +11,7 @@ const { Author } = require("../models/authorModel");
 const router = express.Router();
 
 // course list route
-router.get("/", requireLogin, async (req,res)=>{
+router.get("/",  async (req,res)=>{
     // avoid Unhandle rejection , use TRY Catch block 
     // throw new Error("could not get course ...");
     const courses = await Course.find()
@@ -21,7 +21,7 @@ router.get("/", requireLogin, async (req,res)=>{
 });
 
 // find course with course id 
-router.get("/:id",requireLogin, async (req,res)=>{
+router.get("/:id", async (req,res)=>{
 
     // check the course exist or not , if not exist reurn the message
     var course = await Course.findById(req.params.id);
@@ -31,7 +31,7 @@ router.get("/:id",requireLogin, async (req,res)=>{
 });
 
 // handle the post req
-router.post("/",requireLogin, async (req,res)=>{
+router.post("/", async (req,res)=>{
     // input validation using joi package
     const {error}= validate(req.body);
     // if validate return error 
@@ -53,7 +53,7 @@ router.post("/",requireLogin, async (req,res)=>{
 
 
 // update course
-router.put("/:id",requireLogin, async (req,res)=>{
+router.put("/:id", async (req,res)=>{
 
     // vaidation
     // input validation using joi package 
@@ -79,7 +79,7 @@ router.put("/:id",requireLogin, async (req,res)=>{
 });
 
 // delete course
-router.delete("/:id",[requireLogin, isAdmin], async function(req,res){
+router.delete("/:id", async function(req,res){
   
     let course = await Course.findByIdAndRemove(req.params.id);
     if(!course) return res.status(404).send("Requested course not found");

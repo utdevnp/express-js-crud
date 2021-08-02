@@ -7,7 +7,8 @@ module.exports = function(){
     // connect the database 
     db.connect(database,{
         useNewUrlParser:true,
-        useUnifiedTopology: true
+        useUnifiedTopology: true,
+        useCreateIndex:true
     }).then(() => winston.info("Connected to .. ".database));
     console.log(`Connected to ${database}`);
 
