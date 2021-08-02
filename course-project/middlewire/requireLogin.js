@@ -4,7 +4,7 @@ const config = require("config");
 module.exports = (req, res, next)=>{
 
     const token = req.header("x-auth-header");
-    if(!token)  return res.status(400).send("Auth token not provided..");
+    if(!token)  return res.status(401).send("Auth token not provided..");
 
     try{    
         const decode = jwt.verify(token,config.get('jwtSecretToken'));
@@ -12,7 +12,7 @@ module.exports = (req, res, next)=>{
         req.user = decode;
         next();
     }catch(ex){
-        return res.status(400).send("Invalid auth token");
+        return res.status(401).send("Invalid auth token");
     }
     
 }

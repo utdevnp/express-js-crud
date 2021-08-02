@@ -1,4 +1,4 @@
- 
+const valiadteObjId = require("../middlewire/validateObjectId");
  // use object destructuring , this validateCourse return the two array one is error
 
 const { Course, validate } = require("../models/courseModel");
@@ -8,6 +8,7 @@ const isAdmin = require("../middlewire/isAdmin");
 
 const express = require("express");
 const { Author } = require("../models/authorModel");
+const { Mongoose } = require("mongoose");
 const router = express.Router();
 
 // course list route
@@ -21,8 +22,8 @@ router.get("/",  async (req,res)=>{
 });
 
 // find course with course id 
-router.get("/:id", async (req,res)=>{
-
+router.get("/:id", valiadteObjId, async (req,res)=>{
+   
     // check the course exist or not , if not exist reurn the message
     var course = await Course.findById(req.params.id);
     if(!course) return res.status(404).send("Requested course not found");
@@ -31,7 +32,7 @@ router.get("/:id", async (req,res)=>{
 });
 
 // handle the post req
-router.post("/", async (req,res)=>{
+router.post("/", requireLogin, async (req,res)=>{
     // input validation using joi package
     const {error}= validate(req.body);
     // if validate return error 

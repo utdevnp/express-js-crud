@@ -28,7 +28,7 @@ const Course = new db.model("Course", new db.Schema({
 // course input validation using Joi package , https://www.npmjs.com/package/joi
 function validateCourse(course){
     const schema = Joi.object({
-        name: Joi.string().min(3).required(),
+        name: Joi.string().min(5).required(),
         tags: Joi.array(),
         author: Joi.string(),
         price: Joi.number(),
