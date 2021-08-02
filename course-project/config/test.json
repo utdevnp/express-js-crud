@@ -1,0 +1,4 @@
+{
+    "jwtSecretToken":"jwtSecretToken",
+    "db":"mongodb://localhost/playground_test"
+}
