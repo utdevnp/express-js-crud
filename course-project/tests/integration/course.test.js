@@ -88,6 +88,50 @@ describe("/api/course",()=>{
             expect(res.status).toBe(400);
         })
 
+        it("should save valid course input ", async ()=>{
+
+            const token  = new User({isAdmin:false}).generateAuthToken();
+
+            const res = await request(server)
+                .post("/api/course")
+                .set("x-auth-header",token)
+                .send(
+                    {
+                        "name": "AnAngualr cpurse oadadajd",
+                        "author": "61013ed3ff155a0744a4577d",
+                        "isPublish": true,
+                        "tags":["js","ts"],
+                        "price": 10
+                    }
+                )
+            const course = Course.find({_id:res._id});
+                
+            expect(course).not.toBeNull();
+            expect(res.status).toBe(200);
+            expect(course).toHaveProperty("name",res.name);
+        })
+
+        it("should return course body, if valid course input ", async ()=>{
+
+            const token  = new User({isAdmin:false}).generateAuthToken();
+            const res = await request(server)
+                .post("/api/course")
+                .set("x-auth-header",token)
+                .send(
+                    {
+                        "name": "Php test course",
+                        "author": "61013ed3ff155a0744a4577d",
+                        "isPublish": true,
+                        "tags":["js","ts"],
+                        "price": 10
+                    }
+                )
+            expect(res.status).toBe(200);
+            expect(res.body).toHaveProperty("_id");
+            expect(res.body).toHaveProperty("name","Php test course");
+        })
+
+
     });
 
 
