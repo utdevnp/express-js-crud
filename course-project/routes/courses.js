@@ -1,18 +1,23 @@
 const valiadteObjId = require("../middlewire/validateObjectId");
- // use object destructuring , this validateCourse return the two array one is error
 
-const { Course, validate } = require("../models/courseModel");
+const validateInput = require("../middlewire/validateInput"); 
+// use object destructuring , this validateCourse return the two array one is error
+
+const { Course, validateCourse } = require("../models/courseModel");
 const requireLogin = require("../middlewire/requireLogin");
 const isAdmin = require("../middlewire/isAdmin");
 
 
 const express = require("express");
 const { Author } = require("../models/authorModel");
-const { Mongoose } = require("mongoose");
+const validateObjectId = require("../middlewire/validateObjectId");
 const router = express.Router();
 
+
+
+
 // course list route
-router.get("/",  async (req,res)=>{
+router.get("/", [requireLogin],  async (req,res)=>{
     // avoid Unhandle rejection , use TRY Catch block 
     // throw new Error("could not get course ...");
     const courses = await Course.find()
@@ -22,21 +27,20 @@ router.get("/",  async (req,res)=>{
 });
 
 // find course with course id 
-router.get("/:id", valiadteObjId, async (req,res)=>{
+router.get("/:id", [requireLogin,valiadteObjId], async (req,res)=>{
    
     // check the course exist or not , if not exist reurn the message
     var course = await Course.findById(req.params.id);
-    if(!course) return res.status(404).send("Requested course not found");
-
+    if(!course) return res.sendStatus(404).send("Course not found");
     res.send(course); // send response to the route .
 });
 
 // handle the post req
-router.post("/", requireLogin, async (req,res)=>{
+router.post("/", [requireLogin,validateInput(validateCourse)], async (req,res)=>{
     // input validation using joi package
-    const {error}= validate(req.body);
+    //const {error}= validate(req.body);
     // if validate return error 
-    if(error) return res.status(400).send(error.details[0].message);
+   // if(error) return res.status(400).send(error.details[0].message);
 
     // add the course in array using array push
     let courseadd = new Course({
@@ -54,15 +58,7 @@ router.post("/", requireLogin, async (req,res)=>{
 
 
 // update course
-router.put("/:id", async (req,res)=>{
-
-    // vaidation
-    // input validation using joi package 
-
-    // use object destructuring , this validateCourse return the two array one is error
-
-    const {error}= validate(req.body);
-    if(error) return res.status(400).send(error.details[0].message);
+router.put("/:id", [requireLogin,valiadteObjId,validateInput(validateCourse)], async (req,res)=>{
 
     // find course 
     const course  = await Course.findByIdAndUpdate(req.params.id);
@@ -80,7 +76,7 @@ router.put("/:id", async (req,res)=>{
 });
 
 // delete course
-router.delete("/:id", async function(req,res){
+router.delete("/:id", [requireLogin, valiadteObjId], async function(req,res){
   
     let course = await Course.findByIdAndRemove(req.params.id);
     if(!course) return res.status(404).send("Requested course not found");

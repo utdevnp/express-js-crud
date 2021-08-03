@@ -1,14 +1,20 @@
 
 const request = require("supertest");
 const {Course} = require("../../models/courseModel");
+const courseFactory = require("../factories/courseFactory");
 const {User} = require("../../models/userModel");
 const db = require("mongoose");
 let server ;
 
+
 describe("/api/course",()=>{
+
+    let token; 
+    
     beforeEach(()=>{ 
-        jest.setTimeout(150000);
+        //jest.setTimeout(150000);
         server  = require("../../index"); 
+        token  = new User({isAdmin:false}).generateAuthToken();
     })
     afterEach( async ()=>{ 
         server.close(); 
@@ -17,48 +23,51 @@ describe("/api/course",()=>{
     })
 
     describe("GET/",  ()=>{
+
         it("should return all course listed in db",async ()=>{
-            await Course.collection.insertMany([
-                {
-                    "name": "Angular Course 2021",
-                    "author": "61013ed3ff155a0744a4577d",
-                    "isPublish": true,
-                    "tags":["js","ts"],
-                    "price": 10
-                  }
-            ])
-            const res = await request(server).get("/api/course");
+            courseFactory.createMany();
+
+            const res = await request(server)
+                        .get("/api/course")
+                        .set('x-auth-header',token);
+
             expect(res.status).toBe(200);
             expect(res.body.length).toBe(1);
-            expect(res.body.some(c=>c.name === "Angular Course 2021")).toBeTruthy();
+            expect(res.body.some(c=>c.name === courseFactory.data().name)).toBeTruthy();
           
+        })
+        
+        it("should return 401 when x-auth-header is not set", async ()=>{
+            token = '';
+            const res = await request(server).get("/api/course");
+            expect(res.status).toBe(401);
+
         })
     })
 
     describe("GET/:id", ()=>{
         it("should return course if valid id is pass", async ()=>{
-            const course =  new Course({
-                "name": "Angular Course 2021",
-                "author": "61013ed3ff155a0744a4577d",
-                "isPublish": true,
-                "tags":["js","ts"],
-                "price": 10
-              });
-            await course.save();
+            const course  = await courseFactory.create();
 
-            const res = await request(server).get("/api/course/"+course._id);
+            const res = await request(server)
+                .get("/api/course/"+course._id)
+                .set("x-auth-header",token);
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("name", course.name);
         });
 
         it("should return 404 error if id is invalid ",async  ()=>{
-            const res = await request(server).get("/api/course/jdhaskhdkas");
+            const res = await request(server)
+            .get("/api/course/jdhaskhdkas")
+            .set("x-auth-header",token);
             expect(res.status).toBe(404)
         })
 
-        it("should return 404 if no course exist in given id ",async  ()=>{
+        it("should return 404 if course not exist in given id ", async  ()=>{
             const id = db.Types.ObjectId();
-            const res = await request(server).get("/api/course/"+id);
+            const res = await request(server)
+            .get("/api/course/"+id)
+            .set('x-auth-header',token);
             expect(res.status).toBe(404)
         })
 
@@ -67,84 +76,113 @@ describe("/api/course",()=>{
     describe("POST/",()=>{
         it("should return 401 when user is not log in", async ()=>{
             const res = await request(server)
-                        .post("/api/course")
-                        .send(
-                            {
-                                "name": "Angular Course 2021",
-                                "author": "61013ed3ff155a0744a4577d",
-                                "isPublish": true,
-                                "tags":["js","ts"],
-                                "price": 10
-                              }
-                        )
+                .post("/api/course")
+                .send(courseFactory.data())
             expect(res.status).toBe(401);
 
         })
 
         it("should return 400 if course is invalid", async ()=>{
-
-            const token  = new User({isAdmin:false}).generateAuthToken();
-
             const res = await request(server)
                 .post("/api/course")
                 .set("x-auth-header",token)
-                .send(
-                    {
-                        "name": "An",
-                        "author": "61013ed3ff155a0744a4577d",
-                        "isPublish": true,
-                        "tags":["js","ts"],
-                        "price": 10
-                    }
-                )
+                .send(courseFactory.invalidData())
             expect(res.status).toBe(400);
         })
 
         it("should save valid course input ", async ()=>{
-
-            const token  = new User({isAdmin:false}).generateAuthToken();
-
             const res = await request(server)
                 .post("/api/course")
                 .set("x-auth-header",token)
-                .send(
-                    {
-                        "name": "AnAngualr cpurse oadadajd",
-                        "author": "61013ed3ff155a0744a4577d",
-                        "isPublish": true,
-                        "tags":["js","ts"],
-                        "price": 10
-                    }
-                )
-            const course = Course.find({_id:res._id});
-                
-            expect(course).not.toBeNull();
+                .send(courseFactory.data())
+
+            expect(res.body).not.toBeNull();
             expect(res.status).toBe(200);
-            expect(course).toHaveProperty("name",res.name);
         })
 
         it("should return course body, if valid course input ", async ()=>{
 
-            const token  = new User({isAdmin:false}).generateAuthToken();
+        
             const res = await request(server)
                 .post("/api/course")
                 .set("x-auth-header",token)
-                .send(
-                    {
-                        "name": "Php test course",
-                        "author": "61013ed3ff155a0744a4577d",
-                        "isPublish": true,
-                        "tags":["js","ts"],
-                        "price": 10
-                    }
-                )
+                .send(courseFactory.data())
+
             expect(res.status).toBe(200);
             expect(res.body).toHaveProperty("_id");
-            expect(res.body).toHaveProperty("name","Php test course");
+            expect(res.body).toHaveProperty("name",courseFactory.data().name);
         })
 
-
     });
+
+    describe("DELETE/", ()=>{
+
+        it("should return 200 if course deleted with valid id",async ()=>{
+            const course  = await courseFactory.create();
+
+            const res = await request(server)
+                .delete("/api/course/"+course._id)
+                .set("x-auth-header",token);
+
+            expect(res.status).toBe(200);
+        })
+
+        it("should return 401 where x-auth-header is not set", async ()=>{
+            const course  = await courseFactory.create();
+            const res = await request(server)
+                .delete("/api/course/"+course._id)
+                //.set("x-auth-header",token);
+
+            expect(res.status).toBe(401);
+        })
+
+        it("should return 404 if id is invalid",async ()=>{
+            await courseFactory.create();
+            const res = await request(server)
+                .delete("/api/course/"+ db.Types.ObjectId())
+                .set("x-auth-header",token);
+
+            expect(res.status).toBe(404);
+        })
+    })
+
+    describe("PUT/:id", ()=>{
+        
+        it("should return 200 if valid input and valid id",async()=>{
+           
+            const course  = await courseFactory.create();
+
+            const res = await request(server).put("/api/course/"+course._id)
+                .set('x-auth-header',token)
+                .send(courseFactory.data());
+
+            expect(res.status).toBe(200);
+            expect(res.body).toHaveProperty("_id");
+            expect(res.body.name).toEqual(courseFactory.data().name);
+            
+        })
+
+        it("should return 401 if x-auth toekn not provided",async ()=>{
+            const course  = await courseFactory.create();
+            token  = '';
+            const res = await request(server).put("/api/course/"+course._id)
+                .set('x-auth-header',token)
+                .send(courseFactory.data());
+
+            expect(res.status).toBe(401);
+        });
+
+        it("should return 404 if valid id is not exist ", async()=>{
+            await courseFactory.create();
+       
+            const id = db.Types.ObjectId();
+            const res = await request(server).put("/api/course/"+id)
+                .set('x-auth-header',token)
+                .send(courseFactory.data());
+
+            expect(res.status).toBe(404);
+        })
+    })
 
 
   
