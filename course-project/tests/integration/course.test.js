@@ -1,10 +1,15 @@
+
 const request = require("supertest");
 const {Course} = require("../../models/courseModel");
 const {User} = require("../../models/userModel");
+const db = require("mongoose");
 let server ;
 
 describe("/api/course",()=>{
-    beforeEach(()=>{ server  = require("../../index"); })
+    beforeEach(()=>{ 
+        jest.setTimeout(150000);
+        server  = require("../../index"); 
+    })
     afterEach( async ()=>{ 
         server.close(); 
         // clean the data after test execute 
@@ -50,6 +55,13 @@ describe("/api/course",()=>{
             const res = await request(server).get("/api/course/jdhaskhdkas");
             expect(res.status).toBe(404)
         })
+
+        it("should return 404 if no course exist in given id ",async  ()=>{
+            const id = db.Types.ObjectId();
+            const res = await request(server).get("/api/course/"+id);
+            expect(res.status).toBe(404)
+        })
+
     })
 
     describe("POST/",()=>{

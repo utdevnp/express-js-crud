@@ -1,117 +1,19 @@
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"message":"MongoDB Connected...","level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"stringValue":"\"jdhaskhdkas\"","kind":"ObjectId","value":"jdhaskhdkas","path":"_id","reason":{},"valueType":"string","level":"error","message":"Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\" Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"","stack":"CastError: Cast to ObjectId failed for value \"jdhaskhdkas\" (type string) at path \"_id\" for model \"Course\"\n    at model.Query.exec (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4498:21)\n    at model.Query.Object.<anonymous>.Query.then (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\query.js:4592:15)\n    at processTicksAndRejections (internal/process/task_queues.js:97:5)"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
-{"level":"info"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
+{"level":"error","message":"Operation `courses.insertOne()` buffering timed out after 10000ms Operation `courses.insertOne()` buffering timed out after 10000ms","stack":"MongooseError: Operation `courses.insertOne()` buffering timed out after 10000ms\n    at Timeout.<anonymous> (E:\\Node\\course-project\\node_modules\\mongoose\\lib\\drivers\\node-mongodb-native\\collection.js:197:23)\n    at listOnTimeout (internal/timers.js:549:17)\n    at processTimers (internal/timers.js:492:7)"}
 {"level":"info"}
 {"level":"info"}
 {"level":"info"}
